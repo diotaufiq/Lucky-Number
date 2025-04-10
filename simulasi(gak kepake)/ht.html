@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animasi Sebelum Function</title>
+  <style>
+    /* Gaya dasar untuk overlay animasi */
+    #animasi {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      font-size: 2em;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeInOut 2s forwards;
+    }
+
+    /* Keyframes animasi */
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      25% { opacity: 1; }
+      75% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="playWithAnimation()">Ayo Bermain</button>
+
+  <!-- Elemen animasi -->
+  <div id="animasi">Memulai permainan...</div>
+
+  <script>
+    function user() {
+      alert("Permainan dimulai!");
+      // Logika permainan bisa ditaruh di sini
+    }
+
+    function playWithAnimation() {
+      const animasi = document.getElementById("animasi");
+      animasi.style.display = "flex"; // Tampilkan animasi
+
+      // Setelah 2 detik (durasi animasi), jalankan fungsi user()
+      setTimeout(() => {
+        animasi.style.display = "none";
+        user();
+      }, 2000); // 2000ms = 2 detik
+    }
+  </script>
+
+</body>
+</html>
