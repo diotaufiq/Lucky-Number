@@ -1,39 +1,19 @@
-// console.log(random);
+let nama = localStorage.getItem("username")
+document.getElementById("username").textContent = `Halo ${nama}! Anda telah memasuki web permainan Tebak Angka`
 
-// let spin = Math.ceil(Math.random()*(random-1))
-
-// if (spin === 1) {
-//     console.log("anda kalah");
-
-// } else if (spin === 2) {
-//     console.log("anda belum beruntung");
-
-// } else if (spin === 3) {
-//     console.log("mampus");
-
-// } else if (spin === 4) {
-//     console.log("coba lagi");
-
-// }
 let flag = false;
 let menang = 0;
 let penanda = false
 let sisa;
 
 function user() {
-  let username = prompt("Masukkan username anda!", "pengguna");
-  // console.log(username);
-  if (username !== null) {
-    document.getElementById(
-      "username"
-    ).innerHTML = `Halo ${username}, silahkan bermain!`;
-  }
+  
 
   let deposit = prompt("Isi dompet anda dengan nilai 100.000 (tanpa titik)");
 
   if (Number(deposit) !== 100000) {
     alert("Saldo yang dimasukkan harus sebesar 100.000");
-    document.getElementById("username").innerHTML = `Halo ${username}, deposit harus bernilai 100.000 (tanpa titik)`;
+    // document.getElementById("username").innerHTML = `Halo ${nama}, deposit harus bernilai 100.000 (tanpa titik)`;
   } else if (Number(deposit) === 100000) {
     document.getElementById("saldo").innerHTML = deposit;
 
@@ -61,9 +41,14 @@ function user() {
       
       setTimeout(() => {
         animasi.style.display = "none"; simpanAngka()
-      }, 500);
+      }, 400);
     } else {
-      alert("saldo anda habis, harus deposit lagi")
+      alert("SALDO ANDA HABIS, LANJUT GADAI MOTOR ANDA!!")
+      // const myTimeout = setTimeout(myGreeting, 5000);
+
+// function myGreeting() {
+//   document.getElementById("demo").innerHTML = "Happy Birthday!"
+// }
     }
   }
   
@@ -89,7 +74,7 @@ let bet = Number(taruhan);
     // membandingkan nilai tebakan dengan math random
     let angkaKeluar = Math.ceil(Math.random() * 10);
 
-    console.log(tebakan, "====");
+    // console.log(tebakan, "====");
     
     sisa = saldo - bet;
     document.getElementById("saldo").innerHTML = sisa;
@@ -130,6 +115,6 @@ let bet = Number(taruhan);
     }
     
   }
-  console.log(menang,"menang");
+  console.log(menang,"jumlah tebakan benar sebenarnya");
   
 }
