@@ -9,7 +9,7 @@
 <body>
   
   <div id="animasi">
-    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700" alt="Loading" />
+    <img src="https://media.tenor.com/i_L5KauoCcoAAAAj/dice.gif" alt="Loading" />
   </div>
 
   <button class="start-btn" onclick="user()">Ayo Bermain</button>
@@ -37,13 +37,19 @@
   </div>
 
   <div class="tebakanContent">
+    <form id="form" onsubmit="animasi()">
     <label for="angka">Masukkan angka tebakan dari 1 - 10</label>
     <input class="tebakan" type="number" id="angka" min="1" max="10" required />
-    <input class="submit-btn" type="submit" value="Submit" onclick="animasi()" />
+    <input id="submitButton" class="submit-btn" type="submit" value="Submit"/>
+    </form>
   </div>
 
-  <audio autoplay hidden loop>
-    <source src="stranger-things-124008.mp3" type="audio/ogg">
+  <audio autoplay loop id="audio">
+    <source src="/main-page/stranger-things-124008.mp3" type="audio/ogg">
+  </audio>
+
+  <audio id="audioKlik">
+    <source src="/main-page/soundKlikSubmit.mp3" type="audio/ogg">
   </audio>
   
   <script src="index.js"></script>

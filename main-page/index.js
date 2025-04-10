@@ -1,3 +1,9 @@
+// console.log(document.getElementById("audio"), "audio");
+document.getElementById("audio").volume = 0.5
+
+// console.log(document.getElementById("audioKlik"), "auido klik");
+
+
 let nama = localStorage.getItem("username")
 document.getElementById("username").textContent = `Halo ${nama}! Anda telah memasuki web permainan Tebak Angka`
 
@@ -8,7 +14,7 @@ let sisa;
 
 function user() {
   
-
+  
   let deposit = prompt("Isi dompet anda dengan nilai 100.000 (tanpa titik)");
 
   if (Number(deposit) !== 100000) {
@@ -25,25 +31,39 @@ function user() {
 }
 
 
-  
+  document.getElementById("form").addEventListener("submit", function(event) {
+    event.preventDefault()
+  })
   function animasi() {
+    
+    // let nilai = document.getElementById("angka").value; // masih string
+    // // console.log(nilai, typeof nilai);
+    // let tebakan = Number(nilai);
+    // // console.log(tebakan, "tebakan");
+    // console.log(tebakan,"angka tebakan");
+    
     let deposit = document.getElementById("saldo").innerHTML;
     let saldo = Number(deposit);
-
+    
     let taruhan = document.getElementById("bet").innerHTML;
     let bet = Number(taruhan);
     // console.log(saldo);
     
     if (saldo > 0) {
+      document.getElementById("audio").volume = 0
+      document.getElementById("audioKlik").volume = 0.8
+      document.getElementById("audioKlik").play()
       
       let animasi = document.getElementById("animasi")
       animasi.style.display = "flex"
       
       setTimeout(() => {
-        animasi.style.display = "none"; simpanAngka()
-      }, 400);
+        animasi.style.display = "none";
+        document.getElementById("audio").volume = 0.5
+        simpanAngka()
+      }, 1000);
     } else {
-      alert("SALDO ANDA HABIS, LANJUT GADAI MOTOR ANDA!!")
+      alert("SALDO ANDA HABIS, SILAHKAN GADAI MOTOR ANDA!!")
       // const myTimeout = setTimeout(myGreeting, 5000);
 
 // function myGreeting() {
@@ -98,7 +118,7 @@ let bet = Number(taruhan);
         sisa = sisa + sisa*3;
         document.getElementById("saldo").innerHTML = sisa;
 
-        document.getElementById("hasilTebakan").innerHTML = "Tebakan Anda Benar"
+        document.getElementById("hasilTebakan").innerHTML = "Tebakan Anda Benar, saldo anda bertambah"
         
         // alert("anda menang");
         penanda = true
